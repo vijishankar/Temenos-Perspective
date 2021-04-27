@@ -1,58 +1,58 @@
-Function New-CoreResourceGroup
-{
-    <#
-    .SYNOPSIS
-        This function creates a new resource groups for core
+Function Deploy-ResourceGroup {
 
-    .DESCRIPTION
-        This function creates a new resource group with the specified parameters from pipeline
-
-    .EXAMPLE
-        PS C:\> New-ResourceGroup.ps1
-#>
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute(
-            "PSUseShouldProcessForStateChangingFunctions",
-            "",
-            Justification = "The function creates a new resource groups as expected."
-    )]
     [CmdletBinding()]
-    Param ()
+    Param (
+        [Parameter(Mandatory = $false)]
+        [Int]$capacity = 2
+    )
     begin {
-        #Placeholder for VSTS pipeline integration
         # $payload = $Env:payload
     }
     process {
 
         $startTime = (Get-Date)
-        ######### Getting Azure DevOps variables ###########
 
-        $aksResourceGroup = $Env:AKSRESOURCEGROUP
-        $environment = $Env:ENVIRONMENT
-        $location = $Env:LOCATION
+        ##### Import custom modules ########
+        $scriptRoot = "$Env:SYSTEM_DEFAULTWORKINGDIRECTORY\$Env:RELEASE_PRIMARYACTIFACTSOURCEALIAS"
+        Write-Output ("Script root is {0}" -f $scriptRoot)
+        Get-Childitem –Path $scriptRoot -Include *.psm1 -Recurse | ForEach-Object {
+            Import-Module (Resolve-Path($_)) -Force
+            Write-Output ("Importing module {0}" -f $_)
+        }
 
-        #Check if the spoke resource group alredy exists
+        ###### Getting Azure DevOps variables ########
 
-        $resourceGrtoup = Get-AzResourceGroup -Name $aksResourceGroup -ErrorAction SilentlyContinue
+        $templateFile = "resourceGroup.json"
+        $aksResourceGroup = "Temenos-AKS"
+        $location = "east-us"
+        
 
-        if (!$resourceGrtoup)
+        ########### Creating deployment parameter set ###########
+
+        $resourceGroup = Get-AzResourceGroup -Name $aksResourceGroup -ErrorAction SilentlyContinue
+
+        if (!$resourceGroup)
         {
-            #Create new resource group
-
-            $Parameters = @{
-                name = $aksResourceGroup
-                location = $location
-                tags = @{
-                    environment = $environment
-                    applicationName = "AksResourceGroup"
+            Write-Output ("################################ Creating ResourceGroup ####################################")
+            $Parameters = @{ 
+                templateFile = $templateFile
+                Verbose = $true
+                templateParameterObject = @{
+                   $aksResourceGroup = "Temenos-AKS"
+                   $location = "east-us"
                 }
             }
-            Write-Output $Parameters
-            $result = New-AzResourceGroup @Parameters
-            Write-Output $result -Verbose
+            $result = New-AzResourceGroupDeployment @Parameters
+            Write-Output $result
+
+        }
+        else {
+            Write-Output ("ResourceGroup already exists")
         }
 
         $endTime = (Get-Date)
         'Script Duration --> {0:mm} min {0:ss} sec' -f ($endTime-$startTime)
+
     }
 }
-New-CoreResourceGroup
+Deploy-ResourceGroup
