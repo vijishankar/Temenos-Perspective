@@ -28,10 +28,9 @@ Function Deploy-ResourceGroup {
         {
             Write-Output ("################################ Creating ResourceGroup ####################################")
             $Parameters = @{ 
-                Verbose = $true
                 templateParameterObject = @{
-                   $aksResourceGroup = "Temenos-AKS"
-                   $location = "east-us"
+                   aksResourceGroup = $aksResourceGroup
+                   location = $location
                 }
             }
             $result = az group deployment create @Parameters --template-file resourceGroup.json
