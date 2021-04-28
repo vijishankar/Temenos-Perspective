@@ -28,7 +28,7 @@ pipeline {
 			//load "${Workspace}/Deploy-ResourceGroup.ps1"
 		     
 					pwsh '''
-                                     "$ENV:Workspace/Deploy-ResourceGroup.ps1"
+                                     ".Deploy-ResourceGroup.ps1"
 	
 					'''
 				}
