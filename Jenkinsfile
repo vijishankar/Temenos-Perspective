@@ -17,7 +17,7 @@ pipeline {
 			   
                                     az login --service-principal -u $AZURE_CLIENT_ID -p $CLIENT_SECRET -t $AZURE_TENANT_ID
 		     
-		                                load "${Workspace}/Deploy-ResourceGroup.ps1"
+		                                ${Workspace}/Deploy-ResourceGroup.ps1
 		     
 						'''
 			   
