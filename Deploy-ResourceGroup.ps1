@@ -42,7 +42,7 @@ Function Deploy-ResourceGroup {
                    $location = "east-us"
                 }
             }
-            $result = New-AzResourceGroupDeployment @Parameters
+            $result = az group deployment create @Parameters
             Write-Output $result
 
         }
