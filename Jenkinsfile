@@ -28,17 +28,6 @@ pipeline {
 			//load "${Workspace}/Deploy-ResourceGroup.ps1"
 		     
 					pwsh '''
-					
-					
-					
-				 	
-
-
-./Deploy-ResourceGroup.ps1'
-					
-					
-					
-					
 
 					Function Deploy-ResourceGroup {
 
@@ -89,6 +78,9 @@ pipeline {
 
     }
 }
+
+
+Deploy-ResourceGroup
 					'''
 				}
 			}
