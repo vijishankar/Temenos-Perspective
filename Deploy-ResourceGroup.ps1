@@ -16,8 +16,8 @@ Function Deploy-ResourceGroup {
         ###### Getting Azure DevOps variables ########
 
        
-        $aksResourceGroup = "Temenos-AKS"
-        $location = "east-us"
+        $aksResourceGroup = Temenos-AKS
+        $location = east-us
         
 
         ########### Creating deployment parameter set ###########
