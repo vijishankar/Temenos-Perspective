@@ -34,7 +34,7 @@ Function Deploy-ResourceGroup {
                    $location = "east-us"
                 }
             }
-            $result = az group deployment create @Parameters --template-file azuredeploy.json
+            $result = az group deployment create @Parameters --template-file resourceGroup.json
             Write-Output $result
 
         }
