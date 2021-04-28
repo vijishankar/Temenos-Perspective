@@ -27,7 +27,7 @@ pipeline {
 				    '''
 			//load "${Workspace}/Deploy-ResourceGroup.ps1"
 		     
-						PowerShell("Deploy-ResourceGroup") 
+						PowerShell("${Workspace}/Deploy-ResourceGroup") 
 				}
 			}
 		}   
