@@ -31,8 +31,6 @@ pipeline {
 					
 					
 			    $Env:SYSTEM_DEFAULTWORKINGDIRECTORY = $env:WORKSPACE
-                            // $Env:RELEASE_PRIMARYACTIFACTSOURCEALIAS = "/"
-			    // + $Env:RELEASE_PRIMARYACTIFACTSOURCEALIAS
                             $scriptRoot = $( $Env:SYSTEM_DEFAULTWORKINGDIRECTORY  )
                             Set-Location $scriptRoot
                             $ErrorActionPreference = "Stop"
