@@ -22,10 +22,10 @@ pipeline {
 			   sh '''
 			   
                                     az login --service-principal -u $AZURE_CLIENT_ID -p $CLIENT_SECRET -t $AZURE_TENANT_ID
-				    powerShell(readFileFromWorkspace('Deploy-ResourceGroup.ps1'))
+				    
 				    '''
-			   powerShell(readFileFromWorkspace('Deploy-ResourceGroup.ps1'))
-			powershell -File "${Workspace}/Deploy-ResourceGroup.ps1"
+			   
+			load "${Workspace}/Deploy-ResourceGroup.ps1"
 		     
 						
 				}
