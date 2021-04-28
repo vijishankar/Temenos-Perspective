@@ -1,4 +1,4 @@
-Function Deploy-ResourceGroup {
+def Deploy-ResourceGroup() {
 
     [CmdletBinding()]
     Param (
