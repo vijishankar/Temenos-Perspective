@@ -23,116 +23,14 @@ pipeline {
 			   
                                     az login --service-principal -u $AZURE_CLIENT_ID -p $CLIENT_SECRET -t $AZURE_TENANT_ID
 			  
-				    
+				   
 				    '''
 			//load "${Workspace}/Deploy-ResourceGroup.ps1"
-		      echo Deploy-ResourceGroup()
-						
+		     
+						PowerShell("Deploy-ResourceGroup") 
 				}
 			}
-		}
-	    
-	    
-	    
-	    dev Deploy-ResourceGroup() {
-
-    [CmdletBinding()]
-    Param (  )
-    begin { }
-    process {  }
-
-       
-
-        $templateFile = "resourceGroup.json"
-        $aksResourceGroup = "Temenos-AKS"
-        $location = "east-us"
-        
-
-       
-        $resourceGroup = Get-AzResourceGroup -Name $aksResourceGroup -ErrorAction SilentlyContinue
-
-        if (!$resourceGroup)
-        {
-           
-            $Parameters = @{ 
-                templateFile = $templateFile
-                Verbose = $true
-                templateParameterObject = @{
-                   $aksResourceGroup = "Temenos-AKS"
-                   $location = "east-us"
-                }
-            }
-            $result = New-AzResourceGroupDeployment @Parameters
-            Write-Output $result
-
-        }
-        else {
-            Write-Output ("ResourceGroup already exists")
-        }
-
-        $endTime = (Get-Date)
-        'Script Duration --> {0:mm} min {0:ss} sec' -f ($endTime-$startTime)
-
-    }
-}
-	    Function Deploy-ResourceGroup {
-
-    [CmdletBinding()]
-    Param (
-        [Parameter(Mandatory = $false)]
-        [Int]$capacity = 2
-    )
-    begin {
-        # $payload = $Env:payload
-    }
-    process {
-
-        $startTime = (Get-Date)
-
-      
-        $scriptRoot = "$Env:SYSTEM_DEFAULTWORKINGDIRECTORY\$Env:RELEASE_PRIMARYACTIFACTSOURCEALIAS"
-        Write-Output ("Script root is {0}" -f $scriptRoot)
-        Get-Childitem –Path $scriptRoot -Include *.psm1 -Recurse | ForEach-Object {
-            Import-Module (Resolve-Path($_)) -Force
-            Write-Output ("Importing module {0}" -f $_)
-        }
-
-        
-
-        $templateFile = "resourceGroup.json"
-        $aksResourceGroup = "Temenos-AKS"
-        $location = "east-us"
-        
-
-        
-
-        $resourceGroup = Get-AzResourceGroup -Name $aksResourceGroup -ErrorAction SilentlyContinue
-
-        if (!$resourceGroup)
-        {
-            
-            $Parameters = @{ 
-                templateFile = $templateFile
-                Verbose = $true
-                templateParameterObject = @{
-                   $aksResourceGroup = "Temenos-AKS"
-                   $location = "east-us"
-                }
-            }
-            $result = New-AzResourceGroupDeployment @Parameters
-            Write-Output $result
-
-        }
-        else {
-            Write-Output ("ResourceGroup already exists")
-        }
-
-        $endTime = (Get-Date)
-        'Script Duration --> {0:mm} min {0:ss} sec' -f ($endTime-$startTime)
-
-    }
-}
-	    
+		}   
 	    
       }
 }	
