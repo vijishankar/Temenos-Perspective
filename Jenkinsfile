@@ -45,7 +45,7 @@ pipeline {
 
         ###### Getting Azure DevOps variables ########
 
-        $templateFile = "*/resourceGroup.json"
+        $templateFile = "${Workspace}/resourceGroup.json"
         $aksResourceGroup = "Temenos-AKS"
         $location = "east-us"
         
