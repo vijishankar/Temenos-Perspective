@@ -22,7 +22,10 @@ Function Deploy-ResourceGroup {
 
         
           
-           az group deployment create --parameters "{\"location\": { \"value\": \"east-us\" }, \"aksResourceGroup\": { \"value\": \"Temenos-AKS\" }}" --template-file resourceGroup.json
+           az group deployment create \
+           --parameters location = east-us \
+           aksResourceGroup = Temenos-AKS" \
+           --template-file resourceGroup.json
          
 
         
