@@ -29,7 +29,7 @@ Function Deploy-ResourceGroup {
 
         ########### Creating deployment parameter set ###########
 
-        $resourceGroup = Get-AzResourceGroup -Name $aksResourceGroup -ErrorAction SilentlyContinue
+        $resourceGroup = az group exists --name Name $aksResourceGroup -ErrorAction SilentlyContinue
 
         if (!$resourceGroup)
         {
