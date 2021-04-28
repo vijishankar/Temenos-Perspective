@@ -19,7 +19,7 @@ pipeline {
             steps {
                    withCredentials([usernamePassword(credentialsId: 'myAzureCredential', passwordVariable: 'CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
                           
-			   pwsh '''
+			   sh '''
 			   
                                     az login --service-principal -u $AZURE_CLIENT_ID -p $CLIENT_SECRET -t $AZURE_TENANT_ID
 				    
