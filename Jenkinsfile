@@ -15,23 +15,17 @@ pipeline {
     }
 
     stages {
-		 stage('Deploying Resource') {
+		stage('Example') {
             steps {
-                container('azure') {
-                    pwsh ''' 
-                            ############################### Powershell #############################
-                            
-                            $passwd = ConvertTo-SecureString $env:AZURE_CLIENT_SECRET -AsPlainText -Force
-                            $pscredential = New-Object System.Management.Automation.PSCredential($env:AZURE_CLIENT_ID, $passwd)
-                            Connect-AzAccount -ServicePrincipal -Credential $pscredential -Tenant $env:AZURE_TENANT_ID | Out-null
-                            #Write-Output "Azure Subscription is "$Env:AZURE_SUBSCRIPTION_ID""
-                            Select-AzSubscription -Subscription "$Env:AZURE_SUBSCRIPTION_ID" | Set-AzContext | Out-null
-                            
-                            az login --service-principal -u $Env:APP_URL -p $Env:AZURE_CLIENT_SECRET --tenant $Env:AZURE_TENANT_ID | Out-null
-							
-							'''
-							}
-							}
-							}
+                   withCredentials([usernamePassword(credentialsId: 'myAzureCredential', passwordVariable: 'CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
+                          
+			   sh '''
+			   
+                                    az login --service-principal -u $AZURE_CLIENT_ID -p $CLIENT_SECRET -t $AZURE_TENANT_ID
+		     
+						'''
+				}
+			}
+		}
       }
 }	
