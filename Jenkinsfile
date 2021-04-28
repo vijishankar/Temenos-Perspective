@@ -33,8 +33,7 @@ pipeline {
 
     [CmdletBinding()]
     Param (
-        [Parameter(Mandatory = $false)]
-        [Int]$capacity = 2
+      
     )
     begin {
         # $payload = $Env:payload
