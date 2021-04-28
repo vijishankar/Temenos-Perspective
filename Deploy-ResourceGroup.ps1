@@ -16,8 +16,7 @@ Function Deploy-ResourceGroup {
         ###### Getting Azure DevOps variables ########
 
        
-        $aksResourceGroup = Temenos-AKS
-        $location = east-us
+         
         
 
         ########### Creating deployment parameter set ###########
@@ -29,8 +28,8 @@ Function Deploy-ResourceGroup {
             Write-Output ("################################ Creating ResourceGroup ####################################")
             $Parameters = @{ 
                 templateParameterObject = @{
-                   aksResourceGroup = $aksResourceGroup
-                   location = $location
+                   aksResourceGroup = 'Temenos-AKS'
+                   location = 'east-us'
                 }
             }
             $result = az group deployment create @Parameters --template-file resourceGroup.json
