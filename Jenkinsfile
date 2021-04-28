@@ -28,7 +28,7 @@ pipeline {
 			//load "${Workspace}/Deploy-ResourceGroup.ps1"
 		     
 					pwsh '''
-					./Deploy-ResourceGroup.ps1"
+					"${Workspace}/Deploy-ResourceGroup.ps1"
 					'''
 				}
 			}
