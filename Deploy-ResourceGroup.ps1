@@ -1,4 +1,4 @@
-Function Deploy-ResourceGroup() {
+Function Deploy-ResourceGroup {
 
     [CmdletBinding()]
     Param (
