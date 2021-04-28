@@ -21,13 +21,8 @@ Function Deploy-ResourceGroup {
         ########### Creating deployment parameter set ###########
 
         
-            $Parameters = @{ 
-                templateParameterObject = @{
-                   aksResourceGroup = 'Temenos-AKS'
-                   location = 'east-us'
-                }
-                }
-           az group deployment create @Parameters --template-file resourceGroup.json
+          
+           az group deployment create --parameters "{\"location\": { \"value\": \"east-us\" }, \"aksResourceGroup\": { \"value\": \"Temenos-AKS\" }}" --template-file resourceGroup.json
          
 
         
