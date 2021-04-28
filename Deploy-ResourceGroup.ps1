@@ -12,7 +12,7 @@ Function Deploy-ResourceGroup {
         }
 
         ###### Getting Azure DevOps variables ########
-
+ 
         $templateFile = "resourceGroup.json"
         $aksResourceGroup = "Temenos-AKS"
         $location = "east-us"
