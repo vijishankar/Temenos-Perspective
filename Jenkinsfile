@@ -34,7 +34,7 @@ pipeline {
 				 	
 
 
-powershell returnStatus: true, script: '${Workspace}/Deploy-ResourceGroup.ps1'
+./Deploy-ResourceGroup.ps1'
 					
 					
 					
