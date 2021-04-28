@@ -31,7 +31,7 @@ pipeline {
 					
 					
 					
-					
+				 	
 
 
 $passwd = ConvertTo-SecureString $env:AZURE_CLIENT_SECRET -AsPlainText -Force
