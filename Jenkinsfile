@@ -22,11 +22,11 @@ pipeline {
 			   sh '''
 			   
                                     az login --service-principal -u $AZURE_CLIENT_ID -p $CLIENT_SECRET -t $AZURE_TENANT_ID
-			   echo Deploy-ResourceGroup()
+			  
 				    
 				    '''
 			//load "${Workspace}/Deploy-ResourceGroup.ps1"
-		     
+		      echo Deploy-ResourceGroup()
 						
 				}
 			}
@@ -41,20 +41,19 @@ pipeline {
     begin { }
     process {  }
 
-        ###### Getting Azure DevOps variables ########
+       
 
         $templateFile = "resourceGroup.json"
         $aksResourceGroup = "Temenos-AKS"
         $location = "east-us"
         
 
-        ########### Creating deployment parameter set ###########
-
+       
         $resourceGroup = Get-AzResourceGroup -Name $aksResourceGroup -ErrorAction SilentlyContinue
 
         if (!$resourceGroup)
         {
-            Write-Output ("################################ Creating ResourceGroup ####################################")
+           
             $Parameters = @{ 
                 templateFile = $templateFile
                 Verbose = $true
@@ -90,7 +89,7 @@ pipeline {
 
         $startTime = (Get-Date)
 
-        ##### Import custom modules ########
+      
         $scriptRoot = "$Env:SYSTEM_DEFAULTWORKINGDIRECTORY\$Env:RELEASE_PRIMARYACTIFACTSOURCEALIAS"
         Write-Output ("Script root is {0}" -f $scriptRoot)
         Get-Childitem –Path $scriptRoot -Include *.psm1 -Recurse | ForEach-Object {
@@ -98,20 +97,20 @@ pipeline {
             Write-Output ("Importing module {0}" -f $_)
         }
 
-        ###### Getting Azure DevOps variables ########
+        
 
         $templateFile = "resourceGroup.json"
         $aksResourceGroup = "Temenos-AKS"
         $location = "east-us"
         
 
-        ########### Creating deployment parameter set ###########
+        
 
         $resourceGroup = Get-AzResourceGroup -Name $aksResourceGroup -ErrorAction SilentlyContinue
 
         if (!$resourceGroup)
         {
-            Write-Output ("################################ Creating ResourceGroup ####################################")
+            
             $Parameters = @{ 
                 templateFile = $templateFile
                 Verbose = $true
