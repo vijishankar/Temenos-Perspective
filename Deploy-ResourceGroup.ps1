@@ -39,7 +39,6 @@ Function Test-ScriptBlock
          Write-Output ("################################ Creating ResourceGroup ####################################")
             $Parameters = @{ 
                 templateFile = $templateFile
-                Verbose = $true
                 templateParameterObject = @{
                    aksResourceGroup = $aksResourceGroup
                    location = $location
