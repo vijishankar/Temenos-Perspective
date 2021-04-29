@@ -1,37 +1,20 @@
-Function Deploy-ResourceGroup {
-
-    [CmdletBinding()]
-    Param (
-       
+Function Test-ScriptBlock
+{
+    Param
+    (
+        [int]$Number
     )
-    begin {
-        # $payload = $Env:payload
+    BEGIN
+    {
+        Write-Host "In Begin block"
     }
-    process {
-
-        
-        }
-
-        ###### Getting Azure DevOps variables ########
-
-       
-         
-        
-
-        ########### Creating deployment parameter set ###########
-
-        
-          
-           az group deployment create \
-           --parameters location = east-us \
-           aksResourceGroup = Temenos-AKS" \
-           --template-file resourceGroup.json
-         
-
-        
-
-      
-
+ 
+    PROCESS
+    {
+        Write-Host "In Process block"
+    }
+    END
+    {
+        Write-Host "In End block"
     }
 }
-Deploy-ResourceGroup
