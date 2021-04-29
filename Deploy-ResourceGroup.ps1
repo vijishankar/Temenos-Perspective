@@ -23,6 +23,7 @@ Function Test-ScriptBlock
 
         $templateFile = "storageAccount.json"
         Write-Output $templateFile
+        $ParameterFile = "storageAccount.parameters.json"
         $aksResourceGroup = "Temenos-ARM"
         Write-Output $aksResourceGroup
         $location = "eastus"
@@ -37,14 +38,14 @@ Function Test-ScriptBlock
         if ($resourceGroup)
         {
          Write-Output ("################################ Creating resourcegroup ####################################")
-                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters @storageAccount.parameters.json      
+                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters $ParameterFile
         }
         else {
            Write-Output ("################################ Creating resourcegroup and AKS ####################################")
            
                     az group create -l $location -n $aksResourceGroup
            
-                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters @storageAccount.parameters.json  
+                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters $ParameterFile
         }
 
         $endTime = (Get-Date)
