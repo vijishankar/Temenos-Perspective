@@ -60,4 +60,4 @@ Function Test-ScriptBlock
 }
 
 
-Test-ScriptBlock -ParameterName viji
+Test-ScriptBlock
