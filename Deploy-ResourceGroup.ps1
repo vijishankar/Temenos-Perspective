@@ -18,3 +18,6 @@ Function Test-ScriptBlock
         Write-Host "In End block"
     }
 }
+
+
+Test-ScriptBlock -Number 1
