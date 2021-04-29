@@ -36,18 +36,18 @@ Function Test-ScriptBlock
 
         if ($resourceGroup)
         {
-            Write-Output ("################################ Creating ResourceGroup ####################################")
+         Write-Output ("################################ Creating ResourceGroup ####################################")
             $Parameters = @{ 
                 templateFile = $templateFile
                 Verbose = $true
                 templateParameterObject = @{
-                   $aksResourceGroup = "Temenos-AKS"
-                   $location = "east-us"
+                   aksResourceGroup = $aksResourceGroup
+                   location = $location
+       //    az group deployment create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters location=$location
                 }
             }
-            $result = az group deployment create @Parameters
+ $result = az group deployment create --name mydeployment --resource-group $aksResourceGroup @Parameters
             Write-Output $result
-
         }
         else {
             Write-Output ("ResourceGroup already exists")
