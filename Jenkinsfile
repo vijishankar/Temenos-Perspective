@@ -37,7 +37,8 @@ pipeline {
 					
 					
                                      ./Deploy-ResourceGroup.ps1
-	
+	                             ./AKS-yaml.ps1
+				     
 					'''
 				}
 			}
