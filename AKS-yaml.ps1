@@ -19,9 +19,13 @@ Function Test-KubernetesDeploy
             Write-Output ("Importing module {0}" -f $_)
         }
 
+$resourceGroup = "Temenos-POC-RG"
+$aksName = "aks101cluster123"
+$acrName = "cptdockerregistry"
 
-
-                         az aks get-credentials --resource-group Temenos-POC-RG --name AKS-Temenos 
+                         az aks get-credentials --resource-group $resourceGroup --name $aksName
+			 
+			 az aks update -n $aksName -g $resourceGroup --attach-acr $acrName
 		     
 		         /usr/local/bin/kubectl get nodes
 		     
