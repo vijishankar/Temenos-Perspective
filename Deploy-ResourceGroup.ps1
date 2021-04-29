@@ -37,7 +37,7 @@ Function Test-ScriptBlock
         if ($resourceGroup)
         {
          Write-Output ("################################ Creating ResourceGroup ####################################")
-                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters location=$location
+                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile
 
               
         }
