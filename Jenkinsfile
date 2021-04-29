@@ -36,7 +36,7 @@ pipeline {
                             $ErrorActionPreference = "Stop"
 					
 					
-                                     ./Deploy-ResourceGroup.ps1 -Number 1
+                                     ./Deploy-ResourceGroup.ps1
 	
 					'''
 				}
