@@ -28,7 +28,7 @@ Function Test-ScriptBlock
 
         ########### Creating deployment parameter set ###########
 
-        $resourceGroup = Get-AzResourceGroup -Name $aksResourceGroup -ErrorAction SilentlyContinue
+        $resourceGroup = az group exists -Name $aksResourceGroup -ErrorAction SilentlyContinue
 
         if (!$resourceGroup)
         {
@@ -41,7 +41,7 @@ Function Test-ScriptBlock
                    $location = "east-us"
                 }
             }
-            $result = New-AzResourceGroupDeployment @Parameters
+            $result = az group deployment create @Parameters
             Write-Output $result
 
         }
