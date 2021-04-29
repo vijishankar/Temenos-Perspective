@@ -39,9 +39,7 @@ Function Test-ScriptBlock
          Write-Output ("################################ Creating ResourceGroup ####################################")
                      az group deployment create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters location=$location
 
-                }
-            }
- 
+              
         }
         else {
             Write-Output ("ResourceGroup already exists")
