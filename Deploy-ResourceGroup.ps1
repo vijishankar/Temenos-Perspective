@@ -21,9 +21,9 @@ Function Test-ScriptBlock
 
         ###### Getting Azure DevOps variables ########
 
-        $templateFile = "resourceGroup.json"
+        $templateFile = "akstemplate.json"
         Write-Output $templateFile
-        $aksResourceGroup = "Temenos-POC-RG"
+        $aksResourceGroup = "Temenos-ARM"
         Write-Output $aksResourceGroup
         $location = "east-us"
         Write-Output $location
@@ -36,13 +36,15 @@ Function Test-ScriptBlock
 
         if ($resourceGroup)
         {
-         Write-Output ("################################ Creating ResourceGroup ####################################")
-                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile
-
-              
+         Write-Output ("################################ Creating resourcegroup ####################################")
+                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile    
         }
         else {
-            Write-Output ("exited")
+           Write-Output ("################################ Creating resourcegroup and AKS ####################################")
+           
+                    az group create -l $location -n $aksResourceGroup
+           
+                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile   
         }
 
         $endTime = (Get-Date)
