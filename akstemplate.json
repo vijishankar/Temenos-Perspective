@@ -18,7 +18,7 @@
     },
     "dnsPrefix": {
       "type": "string",
-	  "defaultValue": "aks101cluster"
+	  "defaultValue": "aks101cluster",
       "metadata": {
         "description": "Optional DNS prefix to use with hosted Kubernetes API server FQDN."
       }
