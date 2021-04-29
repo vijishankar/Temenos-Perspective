@@ -34,7 +34,7 @@ Function Test-ScriptBlock
         $resourceGroup = az group exists --name $aksResourceGroup
         Write-Output $resourceGroup
 
-        if (!$resourceGroup)
+        if ($resourceGroup)
         {
             Write-Output ("################################ Creating ResourceGroup ####################################")
             $Parameters = @{ 
