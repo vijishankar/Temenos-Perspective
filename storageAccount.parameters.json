@@ -6,10 +6,10 @@
             "value": "Standard_LRS"
         },
         "location": {
-            "value": "eastus"
+            "value": "[resourceGroup().location]"
         },
         "storageAccountName": {
-            "value": "kubenet"
+            "value": "storageacct111"
         }
     }
 }
