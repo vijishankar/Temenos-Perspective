@@ -4,7 +4,7 @@
   "parameters": {
     "clusterName": {
       "type": "string",
-      "defaultValue": "aks101cluster",
+      "defaultValue": "aks101cluster123",
       "metadata": {
         "description": "The name of the Managed Cluster resource."
       }
@@ -43,7 +43,7 @@
     },
     "agentVMSize": {
       "type": "string",
-      "defaultValue": "Standard_B1s",
+      "defaultValue": "Standard_B2s",
       "metadata": {
         "description": "The size of the Virtual Machine."
       }
