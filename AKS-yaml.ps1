@@ -23,13 +23,13 @@ Function Test-KubernetesDeploy
 
                          az aks get-credentials --resource-group Temenos-POC-RG --name AKS-Temenos 
 		     
-		                    /usr/local/bin/kubectl get nodes
+		         /usr/local/bin/kubectl get nodes
 		     
-		                    /usr/local/bin/kubectl apply -f k8s-deployment.yaml --validate=false
+		         /usr/local/bin/kubectl apply -f k8s-deployment.yaml --validate=false
 				    
-				                /usr/local/bin/kubectl get pods
+			 /usr/local/bin/kubectl get pods
 				    
-				                /usr/local/bin/kubectl get services
+			 /usr/local/bin/kubectl get services
 
 
         
