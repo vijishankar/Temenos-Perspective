@@ -1,0 +1,28 @@
+
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+            "value": "aks101cluster123"
+        },
+        "location": {
+            "value": "eastus"
+        },
+        "dnsPrefix": {
+            "value": "aks101cluster"
+        },
+        "osDiskSizeGB": {
+            "value": 0
+        },
+        "osType": {
+            "value": "Linux"
+        },
+        "agentVMSize": {
+            "value": "Standard_B2s"
+        },
+        "agentCount": {
+            "value": 1
+        }
+    }
+}
