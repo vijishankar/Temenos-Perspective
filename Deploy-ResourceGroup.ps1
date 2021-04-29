@@ -34,7 +34,7 @@ Function Test-ScriptBlock
         $resourceGroup = az group exists --name $aksResourceGroup
         Write-Output $resourceGroup
 
-        if (!$resourceGroup)
+        if ($resourceGroup)
         {
          Write-Output ("################################ Creating resourcegroup ####################################")
                     az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile    
@@ -44,7 +44,7 @@ Function Test-ScriptBlock
            
                     az group create -l $location -n $aksResourceGroup
            
-                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile   
+                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters @storageAccount.parameters.json  
         }
 
         $endTime = (Get-Date)
