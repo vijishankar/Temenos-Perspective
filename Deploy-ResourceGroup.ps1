@@ -21,7 +21,7 @@ Function Test-ScriptBlock
 
         ###### Getting Azure DevOps variables ########
 
-        $templateFile = "storageAccountTemplate.json"
+        $templateFile = "storageAccount.json"
         Write-Output $templateFile
         $aksResourceGroup = "Temenos-ARM"
         Write-Output $aksResourceGroup
@@ -37,7 +37,7 @@ Function Test-ScriptBlock
         if ($resourceGroup)
         {
          Write-Output ("################################ Creating resourcegroup ####################################")
-                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile    
+                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters @storageAccount.parameters.json      
         }
         else {
            Write-Output ("################################ Creating resourcegroup and AKS ####################################")
