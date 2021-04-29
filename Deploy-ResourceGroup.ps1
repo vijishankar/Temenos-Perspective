@@ -22,17 +22,17 @@ Function Test-ScriptBlock
         ###### Getting Azure DevOps variables ########
 
         $templateFile = "resourceGroup.json"
-        write output $templateFile
+        Write-Output $templateFile
         $aksResourceGroup = "Temenos-AKS"
-        write output $aksResourceGroup
+        Write-Output $aksResourceGroup
         $location = "east-us"
-        write output $location
+        Write-Output $location
         
 
         ########### Creating deployment parameter set ###########
 
         $resourceGroup = az group exists --name $aksResourceGroup
-        write output $resourceGroup
+        Write-Output $resourceGroup
 
         if (!$resourceGroup)
         {
