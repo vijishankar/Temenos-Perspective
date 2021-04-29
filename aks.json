@@ -4,21 +4,18 @@
   "parameters": {
     "clusterName": {
       "type": "string",
-      "defaultValue": "aks101cluster123",
       "metadata": {
         "description": "The name of the Managed Cluster resource."
       }
     },
     "location": {
       "type": "string",
-      "defaultValue": "[resourceGroup().location]",
       "metadata": {
         "description": "The location of the Managed Cluster resource."
       }
     },
     "dnsPrefix": {
-      "type": "string",
-	  "defaultValue": "aks101cluster",
+      "type": "string", 
       "metadata": {
         "description": "Optional DNS prefix to use with hosted Kubernetes API server FQDN."
       }
