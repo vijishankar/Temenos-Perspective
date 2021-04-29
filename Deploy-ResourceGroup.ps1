@@ -6,7 +6,8 @@ Function Test-ScriptBlock
     )
     BEGIN
     {
-        Write-Host $ParameterName
+        $Results = $ParameterName
+        Write-Host $Results
     }
  
     PROCESS
