@@ -25,7 +25,7 @@ Function Test-ScriptBlock
         Write-Output $templateFile
         $aksResourceGroup = "Temenos-ARM"
         Write-Output $aksResourceGroup
-        $location = "east-us"
+        $location = "eastus"
         Write-Output $location
         
 
