@@ -6,7 +6,7 @@
             "value": "Standard_LRS"
         },
         "location": {
-            "value": "[resourceGroup().location]"
+            "value": "eastus"
         },
         "storageAccountName": {
             "value": "storageacct111"
