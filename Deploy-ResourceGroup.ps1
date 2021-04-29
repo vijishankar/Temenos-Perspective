@@ -23,7 +23,7 @@ Function Test-ScriptBlock
 
         $templateFile = "resourceGroup.json"
         Write-Output $templateFile
-        $aksResourceGroup = "Temenos-AKS"
+        $aksResourceGroup = "Temenos-POC-RG"
         Write-Output $aksResourceGroup
         $location = "east-us"
         Write-Output $location
@@ -37,12 +37,12 @@ Function Test-ScriptBlock
         if ($resourceGroup)
         {
          Write-Output ("################################ Creating ResourceGroup ####################################")
-                     az group deployment create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters location=$location
+                    az deployment group create --name mydeployment --resource-group $aksResourceGroup --template-file $templateFile --parameters location=$location
 
               
         }
         else {
-            Write-Output ("ResourceGroup already exists")
+            Write-Output ("exited")
         }
 
         $endTime = (Get-Date)
