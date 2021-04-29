@@ -19,7 +19,7 @@ Function Test-KubernetesDeploy
             Write-Output ("Importing module {0}" -f $_)
         }
 
-$resourceGroup = "Temenos-POC-RG"
+$resourceGroup = "Temenos-ARM"
 $aksName = "aks101cluster123"
 $acrName = "cptdockerregistry"
 
