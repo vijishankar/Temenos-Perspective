@@ -3,10 +3,11 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
-      "type": "string",
+      "type": "string"
     },
     "aksResourceGroup": {
       "type": "string",
+      "defaultValue": "Contoso"
     }
   },
   "variables": {},
