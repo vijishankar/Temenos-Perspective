@@ -2,11 +2,11 @@ Function Test-ScriptBlock
 {
     Param
     (
-        [int]$Number
+        [string[]]$ParameterName
     )
     BEGIN
     {
-        Write-Host "In Begin block"
+        Write-Host $ParameterName
     }
  
     PROCESS
@@ -20,4 +20,4 @@ Function Test-ScriptBlock
 }
 
 
-Test-ScriptBlock -Number 1
+Test-ScriptBlock -ParameterName viji
