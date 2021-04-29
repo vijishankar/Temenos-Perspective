@@ -21,7 +21,7 @@ Function Test-ScriptBlock
 
         ###### Getting Azure DevOps variables ########
 
-        $templateFile = "akstemplate.json"
+        $templateFile = "storageAccountTemplate.json"
         Write-Output $templateFile
         $aksResourceGroup = "Temenos-ARM"
         Write-Output $aksResourceGroup
