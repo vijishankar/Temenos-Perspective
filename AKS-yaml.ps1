@@ -29,7 +29,7 @@ $acrName = "cptdockerregistry"
 		     
 		         /usr/local/bin/kubectl get nodes
 		     
-		         /usr/local/bin/kubectl apply -f k8s-deployment.yaml --validate=false
+		         /usr/local/bin/kubectl apply -f aks-deployment.yaml --validate=false
 				    
 			 /usr/local/bin/kubectl get pods
 				    
