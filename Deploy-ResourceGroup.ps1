@@ -28,7 +28,8 @@ Function Test-ScriptBlock
 
         ########### Creating deployment parameter set ###########
 
-        $resourceGroup = az group exists --name $aksResourceGroup -ErrorAction SilentlyContinue
+        $resourceGroup = az group exists --name $aksResourceGroup
+        write output $resourceGroup
 
         if (!$resourceGroup)
         {
