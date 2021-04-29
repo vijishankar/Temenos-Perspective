@@ -22,8 +22,11 @@ Function Test-ScriptBlock
         ###### Getting Azure DevOps variables ########
 
         $templateFile = "resourceGroup.json"
+        write output $templateFile
         $aksResourceGroup = "Temenos-AKS"
+        write output $aksResourceGroup
         $location = "east-us"
+        write output $location
         
 
         ########### Creating deployment parameter set ###########
